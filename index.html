@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estiloLOGIN.css">
+    <title>Sistema Web</title>
+</head>
+<body>
+    <section>
+        <form id="loginForm">
+            <h1>LOGIN</h1>
+            <div class="inputbox">
+                <ion-icon name="mail-outline"></ion-icon>
+                <input type="text" id="username" required>
+                <label for="username">USUARIO</label>
+            </div>
+            <div class="inputbox">
+                <ion-icon name="lock-closed-outline"></ion-icon>
+                <input type="password" id="password" required>
+                <label for="password">CONTRASEÑA</label>
+            </div>
+            <button type="submit">Iniciar Sesión</button>
+            <div class="register">
+                <p>Olvidaste tu contraseña <a href="RecuperarC.html">Recuperar</a></p>
+            </div>
+            <p id="mensajeError" style="color: red;"></p> <!-- Mensaje de error -->
+        </form>
+    </section>
+</body>
+<!-- Agregar este script al final del body -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.querySelector('form');
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); // Evitar el envío del formulario
+
+            const usuario = document.querySelector('#username').value;
+            const contraseña = document.querySelector('#password').value;
+
+            // Aquí puedes agregar tu lógica de validación de usuario y contraseña
+            const usuarioCorrecto = 'usuario'; // Reemplaza 'usuario' por el usuario correcto
+            const contraseñaCorrecta = 'contraseña'; // Reemplaza 'contraseña' por la contraseña correcta
+
+            if (usuario === usuarioCorrecto && contraseña === contraseñaCorrecta) {
+                // Redireccionar a la otra parte de la página
+                window.location.href = 'menu.html';
+            } else {
+                // Mostrar mensaje de error
+                document.querySelector('#mensajeError').innerText = 'Usuario o contraseña incorrectos';
+            }
+        });
+    });
+</script>
+
+</html>
